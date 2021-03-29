@@ -4,23 +4,17 @@ package solution;
  * #485
  * Max Consecutive Ones
  *
- * 1 ms	40.3 MB
+ * 2 ms	40.6 MB
  */
 
 public class Ex_485 {
     public int findMaxConsecutiveOnes(int[] nums) {
-        int count = 0;
-        int max = 0;
+        int count = 0, max = 0;
 
-        for(int n : nums){
-            if(n==0) {
-                if(max<count) max = count;
-                count = 0;
-            }
-            else count ++;
+        for (int n : nums) {
+            max = Math.max(max,
+                    count = n == 0 ? 0 : count + 1);
         }
-
-        if(max<count) max = count;
 
         return max;
     }
