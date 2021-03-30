@@ -1,20 +1,26 @@
 package solution;
 
-import java.util.Arrays;
-
 /**
  * #977
  * Squares of a Sorted Array
  *
- * 2 ms	40.8 MB
+ * 1 ms	40.8 MB
  */
 
 public class Ex_977 {
     public int[] sortedSquares(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = nums[i] * nums[i];
+        int[] result = new int[nums.length];
+        int left = 0, right = nums.length-1;
+        for (int i = nums.length-1; i >=0; i--) {
+            if(Math.abs(nums[left])>Math.abs(nums[right])){
+                result[i] = nums[left] * nums[left];
+                left++;
+            }
+            else{
+                result[i] = nums[right] * nums[right];
+                right--;
+            }
         }
-        Arrays.sort(nums);
-        return nums;
+        return result;
     }
 }
