@@ -1,42 +1,29 @@
 package solution.easy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 /**
  * #914
  * X of a Kind in a Deck of Cards
  *
- * 10 ms 39.5 MB
+ * 3 ms 39.8 MB
  */
 
 public class Ex_914 {
     public boolean hasGroupsSizeX(int[] deck) {
-        Map<Integer, Integer> map = new HashMap<>();
+        if (deck.length >= 2) {
+            int[] array = new int[10000];
 
-        for (int i : deck) {
-            if (map.containsKey(i)) {
-                int value = map.get(i);
-                map.put(i, value + 1);
-            } else {
-                map.put(i, 1);
+            for (int d : deck) {
+                array[d] = array[d] + 1;
             }
+
+            int result = 0;
+            for (int i = 0; i < 10000; i++) {
+                if (array[i] > 0) result = gcd(result, array[i]);
+            }
+
+            return result != 1;
         }
-
-        List<Integer> list = new ArrayList<Integer>();
-
-        for (Integer value : map.values()) {
-            list.add(value);
-        }
-
-        int g = list.get(0);
-        for (int i = 1; i < list.size(); i++) {
-            g = gcd(g, list.get(i));
-        }
-
-        return g != 1;
+        return false;
     }
 
     private int gcd(int x, int y) {
