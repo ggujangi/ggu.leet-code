@@ -1,24 +1,18 @@
 package solution.easy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * #953
  * Verifying an Alien Dictionary
  *
- * 1 ms	39 MB
+ * 0 ms	37.1 MB
  */
 
 public class Ex_953 {
+    String mOrder;
     int index = 0;
-    Map<Character, Integer> map = new HashMap<>();
 
     public boolean isAlienSorted(String[] words, String order) {
-        for (int i = 0; i < order.length(); i++) {
-            map.put(order.charAt(i), i);
-        }
-        map.put(' ', -1);
+        this.mOrder = order;
 
         while (true) {
             if (index == words.length - 1) return true;
@@ -40,8 +34,8 @@ public class Ex_953 {
             char last_char = i < lastArray.length ? lastArray[i] : ' ';
             char new_char = i < newArray.length ? newArray[i] : ' ';
 
-            if (map.get(last_char) < map.get(new_char)) return true;
-            else if(map.get(last_char) > map.get(new_char)) return false;
+            if (mOrder.indexOf(last_char) < mOrder.indexOf(new_char)) return true;
+            else if (mOrder.indexOf(last_char) > mOrder.indexOf(new_char)) return false;
         }
 
         return true;
