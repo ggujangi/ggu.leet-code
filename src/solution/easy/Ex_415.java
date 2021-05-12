@@ -4,7 +4,7 @@ package solution.easy;
  * #415
  * Add Strings
  *
- * Wrong!!
+ * 2 ms	39.1 MB
  */
 
 public class Ex_415 {
@@ -13,18 +13,22 @@ public class Ex_415 {
         int j = num2.length() - 1;
 
         int sum = 0;
+        StringBuilder builder = new StringBuilder();
 
-        while (i >= 0 || j >= 0) {
+        while (i >= 0 || j >= 0 || sum > 0) {
             if (i >= 0) {
-                sum += (int) ((num1.charAt(i) - '0') * Math.pow(10, num1.length() - 1 - i));
+                sum += (num1.charAt(i) - '0');
                 i--;
             }
             if (j >= 0) {
-                sum += (int) ((num2.charAt(j) - '0') * Math.pow(10, num2.length() - 1 - j));
+                sum += (num2.charAt(j) - '0');
                 j--;
             }
+
+            builder.append(sum % 10);
+            sum = sum > 9 ? sum / 10 : 0;
         }
 
-        return String.valueOf(sum);
+        return builder.reverse().toString();
     }
 }
