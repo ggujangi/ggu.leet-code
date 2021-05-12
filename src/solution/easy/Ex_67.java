@@ -4,32 +4,31 @@ package solution.easy;
  * #67
  * Add Binary
  *
- * Wrong!!
+ * 1 ms	37.9 MB
  */
 
 public class Ex_67 {
     public String addBinary(String a, String b) {
-        long result = convert(a) + convert(b);
+        int i = a.length() - 1;
+        int j = b.length() - 1;
 
-        if (result == 0) return "0";
-
+        int sum = 0;
         StringBuilder builder = new StringBuilder();
 
-        while (result > 0) {
-            builder.append(result % 2);
-            result /= 2;
+        while (sum > 0 || i >= 0 || j >= 0) {
+            if (i >= 0) {
+                sum += a.charAt(i) - '0';
+                i--;
+            }
+
+            if (j >= 0) {
+                sum += b.charAt(j) - '0';
+                j--;
+            }
+            builder.append(sum % 2);
+            sum /= 2;
         }
 
         return builder.reverse().toString();
-    }
-
-    private long convert(String s) {
-        int i = s.length() - 1;
-        int result = 0;
-        while (i >= 0) {
-            result += Math.pow(2, s.length() - 1 - i) * (s.charAt(i) - 48);
-            i--;
-        }
-        return result;
     }
 }
