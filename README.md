@@ -2,8 +2,10 @@
      width="450px" href="https://leetcode.com/problemset/all/"/>
 
 # My LeetCode submissions 🔨🔨
-<img src="https://img.shields.io/github/languages/top/ggujangi/ggu.leet-code?style=for-the-badge&color=red"/> <img src="https://img.shields.io/github/last-commit/ggujangi/ggu.leet-code?style=for-the-badge"/> <img src="https://img.shields.io/badge/Tistory-181717?style=for-the-badge&logo=blogger&logoColor=white"><a href="https://shrimp-burger.tistory.com/category/LeetCode"></a></img>
+<img src="https://img.shields.io/github/languages/top/ggujangi/ggu.leet-code?style=for-the-badge&color=red"/> <img src="https://img.shields.io/github/last-commit/ggujangi/ggu.leet-code?style=for-the-badge"/>
+[![Tistory Badge](http://img.shields.io/badge/Tistory-black?style=for-the-badge&logo=blogger&logoColor=white&link=https://shrimp-burger.tistory.com/category/LeetCode)](https://shrimp-burger.tistory.com/category/LeetCode)
 <br/>
+
 
 #### Repository for solving LeetCode algorithm problems. Solve in the order of Easy, Medium, and Hard. Also post on a blog, "Tistory" at the same time. It will be a long journey. 😅
 
